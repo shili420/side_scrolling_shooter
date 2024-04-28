@@ -241,8 +241,9 @@ public class Controller_Player : MonoBehaviour
             }
             else
             {
-                gameObject.SetActive(false);
-                //Destroy(this.gameObject);
+                // Reiniciar posición del jugador
+                transform.position = Vector3.zero; // Cambia Vector3.zero por la posición inicial deseada
+                                                   // Otros pasos de reinicio, si es necesario
                 Controller_Hud.gameOver = true;
             }
         }
