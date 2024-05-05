@@ -13,7 +13,7 @@ public class Controller_Laser : Projectile
 
     public GameObject parent;
 
-    private float relaseCounter=0.2f;
+    private float relaseCounter=0.1f;
 
     private SphereCollider sphereCollider;
 
@@ -31,7 +31,7 @@ public class Controller_Laser : Projectile
         if (relaseCounter <= 0)
         {
             relase = true;
-            relaseCounter = 0.2f;
+            relaseCounter = 0.1f;
         }
         if (!relase)
         {
