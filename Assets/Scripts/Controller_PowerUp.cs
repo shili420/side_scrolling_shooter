@@ -6,6 +6,8 @@ public class Controller_PowerUp : Projectile
 {
     private Rigidbody rb;
 
+    public Rigidbody velocity;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -13,6 +15,6 @@ public class Controller_PowerUp : Projectile
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector3(-0.7f,0,0);
+        rb.velocity = new Vector3(-10f,0,0);
     }
 }

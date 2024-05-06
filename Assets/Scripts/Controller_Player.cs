@@ -46,13 +46,13 @@ public class Controller_Player : MonoBehaviour
                 GameObject container = new GameObject("Player");
                 _Player = container.AddComponent<Controller_Player>();
             }
-            //Debug.Log("Player==null");
-            DontDestroyOnLoad(_Player);
+            Debug.Log("Player==null");
+           
         }
         else
         {
-            //Debug.Log("Player=!null");
-            //this.gameObject.SetActive(false);
+            Debug.Log("Player=!null");
+            this.gameObject.SetActive(false);
             Destroy(this.gameObject);
         }
     }
@@ -97,7 +97,7 @@ public class Controller_Player : MonoBehaviour
     {
         missileCount -= Time.deltaTime;
         shootingCount -= Time.deltaTime;
-        if (Input.GetKey(KeyCode.O) && shootingCount<0)
+        if (Input.GetKey(KeyCode.Mouse0) && shootingCount<0)
         {
             if (OnShooting!=null)
             {
@@ -108,7 +108,7 @@ public class Controller_Player : MonoBehaviour
             {
                 laser = Instantiate(laserProjectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
                 laser.GetComponent<Controller_Laser>().parent = this.gameObject;
-                //laser.GetComponent<Controller_Laser>().relase = false;
+                laser.GetComponent<Controller_Laser>().relase = true;
             }
             else
             {
@@ -129,7 +129,7 @@ public class Controller_Player : MonoBehaviour
             }
             if (laser != null)
             {
-                laser.GetComponent<Controller_Laser>().relase = false;
+                laser.GetComponent<Controller_Laser>().relase = true;
             }
             shootingCount = 0.1f;
         }
@@ -137,16 +137,16 @@ public class Controller_Player : MonoBehaviour
         {
             if (laser != null)
             {
-                laser.GetComponent<Controller_Laser>().relase = true;
+                laser.GetComponent<Controller_Laser>().relase = false;
                 laser = null;
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (powerUpCount == 1)
             {
-                speed *= 2;
+                speed += 1;
                 powerUpCount = 0;
             }
             else if(powerUpCount == 2)
@@ -154,7 +154,7 @@ public class Controller_Player : MonoBehaviour
                 if (!missiles)
                 {
                     missiles = true;
-                    powerUpCount = 0;
+                    powerUpCount = 1;
                 }
             }
             else if (powerUpCount == 3)
@@ -162,7 +162,7 @@ public class Controller_Player : MonoBehaviour
                 if (!doubleShoot)
                 {
                     doubleShoot = true;
-                    powerUpCount = 0;
+                    powerUpCount = 2;
                 }
             }
             else if (powerUpCount == 4)
@@ -170,7 +170,7 @@ public class Controller_Player : MonoBehaviour
                 if (!laserOn)
                 {
                     laserOn = true;
-                    powerUpCount = 0;
+                    powerUpCount = 3;
                 }
             }
             else if (powerUpCount == 5)
@@ -180,7 +180,7 @@ public class Controller_Player : MonoBehaviour
             else if (powerUpCount >= 6)
             {
                 forceField = true;
-                powerUpCount = 0;
+                powerUpCount = 4;
             }
         }
     }
@@ -198,19 +198,19 @@ public class Controller_Player : MonoBehaviour
         {
             op = Instantiate(option, new Vector3(transform.position.x - 1, transform.position.y + 2, transform.position.z), Quaternion.identity);
             options.Add(op.GetComponent<Controller_Option>());
-            powerUpCount = 0;
+            powerUpCount = 1;
         }
         else if(options.Count == 2)
         {
             op = Instantiate(option, new Vector3(transform.position.x - 1.5f, transform.position.y - 4, transform.position.z), Quaternion.identity);
             options.Add(op.GetComponent<Controller_Option>());
-            powerUpCount = 0;
+            powerUpCount = 2;
         }
         else if (options.Count == 3)
         {
             op = Instantiate(option, new Vector3(transform.position.x - 1.5f, transform.position.y + 4, transform.position.z), Quaternion.identity);
             options.Add(op.GetComponent<Controller_Option>());
-            powerUpCount = 0;
+            powerUpCount = 3;
         }
     }
 

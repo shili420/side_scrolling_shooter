@@ -119,9 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1758bbc7c7f3514ba1469a2f6597e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xLimit: 60
-  yLimit: 60
-  projectileSpeed: 30
+  xLimit: 40
+  yLimit: 40
+  projectileSpeed: 10
   rb: {fileID: 0}
 --- !u!54 &2737279127566898126
 Rigidbody:

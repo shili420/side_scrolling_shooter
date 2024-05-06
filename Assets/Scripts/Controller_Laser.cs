@@ -13,7 +13,7 @@ public class Controller_Laser : Projectile
 
     public GameObject parent;
 
-    private float relaseCounter=0.1f;
+    private float relaseCounter= 0.1f;
 
     private SphereCollider sphereCollider;
 
@@ -35,11 +35,11 @@ public class Controller_Laser : Projectile
         }
         if (!relase)
         {
-            sphereCollider.enabled = false;
+            sphereCollider.enabled = true;
         }
         else
         {
-            sphereCollider.enabled = true;
+            sphereCollider.enabled = false;
         }
         base.Update();
     }
@@ -56,7 +56,7 @@ public class Controller_Laser : Projectile
         }
         else
         {
-            rb.velocity=new Vector3(laserSpeed, 0, 0);
+            rb.velocity=new Vector3(laserSpeed, 100, 100);
         }
     }
 }

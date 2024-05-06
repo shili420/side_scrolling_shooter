@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Controller_Instantiator : MonoBehaviour
 {
-    public float timer=7;
+    public float timer=3;
 
     public  List<GameObject> enemies;
 
@@ -49,7 +49,7 @@ public class Controller_Instantiator : MonoBehaviour
                 Vector3 transform = new Vector3(offsetX, instantiatePos.transform.position.y, instantiatePos.transform.position.z);
                 Instantiate(enemies[rnd], transform,Quaternion.identity);
             }
-            timer = 7;
+            timer = 3;
         }
     }
 }

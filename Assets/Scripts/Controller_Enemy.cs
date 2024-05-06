@@ -57,17 +57,12 @@ public class Controller_Enemy : MonoBehaviour
             Destroy(this.gameObject);
             Controller_Hud.points++;
         }
-        if (collision.gameObject.CompareTag("Laser"))
-        {
-            GeneratePowerUp();
-            Destroy(this.gameObject);
-            Controller_Hud.points++;
-        }
+       
     }
 
     private void GeneratePowerUp()
     {
-        int rnd = UnityEngine.Random.Range(0, 3);
+        int rnd = UnityEngine.Random.Range(0, 4);
         if (rnd == 2)
         {
             Instantiate(powerUp, transform.position, Quaternion.identity);

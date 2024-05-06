@@ -3,7 +3,17 @@ guid: b4edce82d10e9bf40a1936572654861c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - projectile: {fileID: 8500176173504030484, guid: 5f67b379e305235498b5f90903e446a8,
+      type: 3}
+  - doubleProjectile: {fileID: 8500176173504030484, guid: fb2d17bc93f8b6f49a7c3cb4bf83f34e,
+      type: 3}
+  - missileProjectile: {fileID: 5197725301365982428, guid: eb6dbe4c4fbcb764da77534ce8acced0,
+      type: 3}
+  - laserProjectile: {fileID: 2432992447772073589, guid: 3cb8890637fe8bd498632a75db07fb9c,
+      type: 3}
+  - option: {fileID: 9206306280091525897, guid: a2ccf1076a15c0a4f8f38f568358fada,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

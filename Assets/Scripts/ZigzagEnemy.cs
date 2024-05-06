@@ -30,12 +30,12 @@ public class ZigzagEnemy : Controller_Enemy
         if (collision.gameObject.CompareTag("Floor"))
         {
             goingUp = true;
-            //rb.velocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
         }
         if (collision.gameObject.CompareTag("Ceiling"))
         {
             goingUp = false;
-            //rb.velocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
         }
         base.OnCollisionEnter(collision);
     }
