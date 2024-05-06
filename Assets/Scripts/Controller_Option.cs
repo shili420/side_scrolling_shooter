@@ -13,7 +13,7 @@ public class Controller_Option : MonoBehaviour
 
     private void Awake()
     {
-        //Controller_Player._Player.OnShooting += Shoot;
+        Controller_Player._Player.OnShooting += Shoot;
     }
 
     void Start()
@@ -39,21 +39,7 @@ public class Controller_Option : MonoBehaviour
         if (parent == null)
             Destroy(this.gameObject);
 
-        if (Input.GetKey(KeyCode.O))
-        {
-            if (laser != null)
-            {
-                laser.GetComponent<Controller_Laser>().relase = false;
-            }
-        }
-        else
-        {
-            if (laser != null)
-            {
-                laser.GetComponent<Controller_Laser>().relase = true;
-                laser = null;
-            }
-        }
+     
     }
 
     public void Shoot()
@@ -86,10 +72,10 @@ public class Controller_Option : MonoBehaviour
     }
 
 
-    //void OnEnable()
-    //{
-    //    Controller_Player._Player.OnShooting += Shoot;
-    //}
+    void OnEnable()
+    {
+        Controller_Player._Player.OnShooting += Shoot;
+    }
 
     void OnDisable()
     {

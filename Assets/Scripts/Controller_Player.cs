@@ -95,52 +95,22 @@ public class Controller_Player : MonoBehaviour
 
     public virtual void ActionInput()
     {
-        missileCount -= Time.deltaTime;
-        shootingCount -= Time.deltaTime;
-        if (Input.GetKey(KeyCode.Mouse0) && shootingCount<0)
+        if (shootingCount > 0)
         {
-            if (OnShooting!=null)
-            {
-                OnShooting();
-            }
+            shootingCount -= Time.deltaTime;
+            return;
+        }
 
-            if (laserOn)
-            {
-                laser = Instantiate(laserProjectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-                laser.GetComponent<Controller_Laser>().parent = this.gameObject;
-                laser.GetComponent<Controller_Laser>().relase = true;
-            }
-            else
-            {
-                Instantiate(projectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-                if (doubleShoot)
-                {
-                    doubleProjectile.GetComponent<Controller_Projectile_Double>().directionUp = lastKeyUp;
-                    Instantiate(doubleProjectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-                }
-                if (missiles)
-                {
-                    if (missileCount < 0)
-                    {
-                        Instantiate(missileProjectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(0, 0, 90));
-                        missileCount = 2;
-                    }
-                }
-            }
-            if (laser != null)
-            {
-                laser.GetComponent<Controller_Laser>().relase = true;
-            }
-            shootingCount = 0.1f;
-        }
-        else
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (laser != null)
-            {
-                laser.GetComponent<Controller_Laser>().relase = false;
-                laser = null;
-            }
+            // Realiza el disparo
+            Shoot();
+
+            // Configura el tiempo de recarga
+            shootingCount = 0.4f;
         }
+
+        
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -183,6 +153,14 @@ public class Controller_Player : MonoBehaviour
                 powerUpCount = 4;
             }
         }
+    }
+
+    private void Shoot()
+    {
+        // Instancia el proyectil
+        Instantiate(projectile, transform.position, Quaternion.identity);
+
+        // Aquí puedes agregar más lógica de disparo si es necesario
     }
 
     private void OptionListing()

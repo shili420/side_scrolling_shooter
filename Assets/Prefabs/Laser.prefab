@@ -123,7 +123,7 @@ MonoBehaviour:
   yLimit: 50
   maxGrowth: 3
   laserSpeed: 100
-  relase: 1
+  relase: 0
   parent: {fileID: 2432992447772073589}
 --- !u!54 &1803548762952741174
 Rigidbody:
